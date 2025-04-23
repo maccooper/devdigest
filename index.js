@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-
-const digestRoute = require('./routes/digest'); //Customer router
-
 const PORT = process.env.PORT || 3000;
 
-app.use('/api/digest', digestRoute); //Mounts digest router
+app.get('/', (req, res) => {
+	res.json({ message: 'Welcome to DevDigest!' });
+});
 
-app.listen(process.env.PORT || 3000);
+app.listen(PORT, () => {
+	console.log(`Server listening on port ${PORT}`);
+});
+
 
