@@ -1,0 +1,60 @@
+:root {
+  --background-color: #151322;
+  --card-color: #1e1d2b;
+  --text-color: #e4e4e7;
+  --link-color: #6cb4ff;
+  --accent-color: #2a283b;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+}
+
+#preferences, #digest {
+  background-color: var(--card-color);
+  margin: 1rem auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+#tags-form label {
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+#stories {
+  margin-top: 1rem;
+}
+
+.story {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--accent-color);
+  border-radius: 8px;
+}
+
+.story a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.story a:hover {
+  text-decoration: underline;
+}
+

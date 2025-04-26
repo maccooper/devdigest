@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
 
+
+app.use(express.static('public'));
+
 const digestRoute = require('./routes/digest');
+
 
 app.use('/api/digest', digestRoute);
 
