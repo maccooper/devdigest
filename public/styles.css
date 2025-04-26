@@ -37,6 +37,16 @@ h1 {
 	text-align right;
 }
 
+#category-settings {
+  display: flex;
+  justify-content: flex-start; /* ✅ Align everything to the left */
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin: 3rem auto;
+  max-width: 900px;
+  padding: 0 1rem; /* Soft side padding */
+}
+
 #settings-button {
   background: none;
   color: var(--text);
@@ -121,7 +131,7 @@ h1 {
 
 .category-form {
   display: flex;
-  justify-center: center;
+  justify-center: flex-start;
   gap: 4rem;
   flex-wrap: wrap;
   max-width: 800px;
@@ -131,12 +141,14 @@ h1 {
 .category-column {
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
 	gap: 2rem;
 }
 
 .category-card {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   width:100%;
   padding: 1.5rem;
   background-coloor: var(--card-color);
