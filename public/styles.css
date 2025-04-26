@@ -21,8 +21,6 @@ header {
   padding: 2rem 1rem;
 }
 
-
-
 h1 {
   font-size: 2.5rem;
   color: var(--text-color);
@@ -121,3 +119,35 @@ h1 {
   }
 }
 
+.category-form {
+  display: flex;
+  gap: 4rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.category-column {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-coloor: var(--card-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  user-select: none;
+}
+
+.category-card:hover {
+  background-color: var(--accent-color);
+}
+
+.category-card input[type="checkbox"] {
+  margin-right: 0.5rem;
+}

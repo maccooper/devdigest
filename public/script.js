@@ -5,7 +5,8 @@ async function fetchDigest() {
     renderStories(stories);
   } catch (err) {
     console.error('Failed to fetch digest:', err);
-    document.getElementById('stories').innerHTML = '<p>Error loading stories.</p>';
+    const container = document.getElementById('stories');
+    container.innerHTML = '<p>Error loading stories.</p>';
   }
 }
 
@@ -13,7 +14,6 @@ function renderStories(stories) {
   const container = document.getElementById('stories');
   container.innerHTML = '';
 
-  // ✅ Just display top 5 stories without filtering
   const topStories = stories.slice(0, 5);
 
   topStories.forEach(story => {
@@ -27,6 +27,11 @@ function renderStories(stories) {
   });
 }
 
-// 🚀 Kick off fetching on page load
-fetchDigest();
+document.addEventListener('DOMContentLoaded', () => {
+  // 🕑 Show quick loading message
+  const container = document.getElementById('stories');
+  container.innerHTML = '<p>Loading top stories...</p>';
+
+  fetchDigest();
+});
 
