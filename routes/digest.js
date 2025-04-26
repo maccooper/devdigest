@@ -7,7 +7,7 @@ router.get('/', async (req,res) => {
 
 		const response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
 		const ids = await response.json();
-		const top5 = ids.slice(0,5);
+		const top5 = ids.slice(0,10);
 
 		const stories = await Promise.all(
 			top5.map(id =>

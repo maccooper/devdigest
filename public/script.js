@@ -14,7 +14,7 @@ function renderStories(stories) {
   const container = document.getElementById('stories');
   container.innerHTML = '';
 
-  const topStories = stories.slice(0, 5);
+  const topStories = stories.slice(0, 10);
 
   topStories.forEach(story => {
     const div = document.createElement('div');
