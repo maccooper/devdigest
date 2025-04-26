@@ -28,7 +28,6 @@ function renderStories(stories) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 🕑 Show quick loading message
   const container = document.getElementById('stories');
   container.innerHTML = '<p>Loading top stories...</p>';
 

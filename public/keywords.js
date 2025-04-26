@@ -45,5 +45,3 @@ const categoryKeywords = {
   ]
 };
 
-module.exports = categoryKeywords;
-
