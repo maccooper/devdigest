@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevDigest Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Settings</h1>
+    <button onclick="window.location.href='index.html'">← Back to Digest</button>
+    <button onclick="toggleTheme()">🌓 Toggle Theme</button>
+  </header>
+
+  <section>
+    <h2>Select Your Topics:</h2>
+    <form id="tags-form">
+      <label><input type="checkbox" value="rust"> Rust</label>
+      <label><input type="checkbox" value="ai"> AI</label>
+      <label><input type="checkbox" value="cloud"> Cloud</label>
+      <label><input type="checkbox" value="security"> Security</label>
+    </form>
+  </section>
+
+  <script src="theme.js"></script>
+  <script>
+    const form = document.getElementById('tags-form');
+
+    // Load saved
+    const saved = JSON.parse(localStorage.getItem('devdigest-tags') || '[]');
+    saved.forEach(tag => {
+      const cb = form.querySelector(`input[value="${tag}"]`);
+      if (cb) cb.checked = true;
+    });
+
+    // Save on change
+    form.addEventListener('change', () => {
+      const selected = Array.from(form.querySelectorAll('input:checked')).map(cb => cb.value);
+      localStorage.setItem('devdigest-tags', JSON.stringify(selected));
+    });
+  </script>
+</body>
+</html>
+
