@@ -31,24 +31,7 @@
 </div>
 
   </section>
-
-  <script src="theme.js"></script>
-  <script>
-    const form = document.getElementById('tags-form');
-
-    // Load saved
-    const saved = JSON.parse(localStorage.getItem('devdigest-tags') || '[]');
-    saved.forEach(tag => {
-      const cb = form.querySelector(`input[value="${tag}"]`);
-      if (cb) cb.checked = true;
-    });
-
-    // Save on change
-    form.addEventListener('change', () => {
-      const selected = Array.from(form.querySelectorAll('input:checked')).map(cb => cb.value);
-      localStorage.setItem('devdigest-tags', JSON.stringify(selected));
-    });
-  </script>
-</body>
+  <script src = "settings.js" defer></script>
+  </body>
 </html>
 
