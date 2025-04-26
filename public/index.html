@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DevDigest</title>
-  <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DevDigest</title>
+  	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <h1>DevDigest</h1>
     <p>Your daily dose of tech inspiration</p>
+    <div id="settings-container">
+	<button id="settings-button" onclick="window.location.href='settings.html'">⚙️ Settings</button>
+    </div>
   </header>
-
   <section id="digest">
     <h2>Today's Digest</h2>
     <div id="stories"></div>
