@@ -8,23 +8,25 @@ function getSelectedCategories() {
     }
 }
 
-function getMatchedKeywords(title) {
-    const lower = title.toLowerCase();
-    const matches = [];
+function getMatchedCategories(title) {
+  const lower = title.toLowerCase();
+  const selectedCategories = getSelectedCategories();
+  const matched = [];
 
-    for (const keywords of Object.values(categoryKeywords)) {
-        for (const keyword of keywords) {
-            if (lower.includes(keyword) && !matches.includes(keyword)) {
-                matches.push(keyword);
-            }
-        }
+  for (const [category, keywords] of Object.entries(categoryKeywords)) {
+    if (!selectedCategories.includes(category)) continue;
+
+    if (keywords.some(keyword => lower.includes(keyword))) {
+      matched.push(category);
     }
+  }
 
-    if (matches.length === 0) {
-        matches.push("general");
-    }
+  // If no matches and 'general' is selected, fallback
+  if (matched.length === 0 && selectedCategories.includes("general")) {
+    matched.push("general");
+  }
 
-    return matches;
+  return matched;
 }
 
 function detectCategory(title) {
@@ -39,41 +41,38 @@ function detectCategory(title) {
 }
 
 function renderStories(stories) {
-    const container = document.getElementById("stories");
-    container.innerHTML = "";
+  const container = document.getElementById('stories');
+  container.innerHTML = '';
 
-    const selectedCategories = getSelectedCategories();
+  const selectedCategories = getSelectedCategories();
 
-    const filtered = stories.filter((story) => {
-        const category = detectCategory(story.title);
-        return selectedCategories.includes(category);
-    });
+  const filtered = stories.filter(story => {
+    const matched = getMatchedCategories(story.title);
+    return matched.length > 0;
+  });
 
-    const topStories = filtered.slice(0, 10);
+  const topStories = filtered.slice(0, 10);
 
-    if (topStories.length === 0) {
-        container.innerHTML =
-            "<p>No stories match your selected categories.</p>";
-        return;
-    }
+  if (topStories.length === 0) {
+    container.innerHTML = '<p>No stories match your selected categories.</p>';
+    return;
+  }
 
-    topStories.forEach((story) => {
-        const div = document.createElement("div");
-        div.className = "story";
+  topStories.forEach(story => {
+    const div = document.createElement('div');
+    div.className = 'story';
 
-        const matchedKeywords = getMatchedKeywords(story.title);
-        const tagsHTML = matchedKeywords
-            .map((tag) => `<span class="tag">${tag}</span>`)
-            .join(" ");
+    const matchedCategories = getMatchedCategories(story.title);
+    const tagsHTML = matchedCategories.map(tag => `<span class="tag">${tag}</span>`).join(' ');
 
-        div.innerHTML = `
+    div.innerHTML = `
       <a href="${story.url}" target="_blank">${story.title}</a>
       <p>by ${story.by} • Points: ${story.score}</p>
       <div class="tags">${tagsHTML}</div>
     `;
 
-        container.appendChild(div);
-    });
+    container.appendChild(div);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
