@@ -1,37 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>DevDigest Settings</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>Settings</h1>
-    <button id = "settings-button" onclick="window.location.href='index.html'">← Back to Digest</button>
-  </header>
+    <head>
+        <title>DevDigest Settings</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Settings</h1>
+            <button
+                id="settings-button"
+                onclick="window.location.href='index.html'"
+            >
+                ← Back to Digest
+            </button>
+        </header>
 
-  <section>
-    <h2>Select Your Topics:</h2>
-  <div id="category-settings" class="category-form">
-  <div class="category-column">
-    <label class="category-card"><input type="checkbox" value="programming"> Programming</label>
-    <label class="category-card"><input type="checkbox" value="cybersecurity"> Cybersecurity</label>
-    <label class="category-card"><input type="checkbox" value="science"> Science</label>
-    <label class="category-card"><input type="checkbox" value="finance"> Finance</label>
-    <label class="category-card"><input type="checkbox" value="media"> Media</label>
-  </div>
+        <section>
+            <h2>Select Your Topics:</h2>
+            <div id="category-settings" class="category-form">
+                <div class="category-column">
+                    <label class="category-card"
+                        ><input type="checkbox" value="programming" />
+                        Programming</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="cybersecurity" />
+                        Cybersecurity</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="science" />
+                        Science</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="finance" />
+                        Finance</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="media" /> Media</label
+                    >
+                </div>
 
-  <div class="category-column">
-    <label class="category-card"><input type="checkbox" value="artificial-intelligence"> Artificial Intelligence</label>
-    <label class="category-card"><input type="checkbox" value="startups"> Startups</label>
-    <label class="category-card"><input type="checkbox" value="design"> Design</label>
-    <label class="category-card"><input type="checkbox" value="career"> Career</label>
-    <label class="category-card"><input type="checkbox" value="general"> General</label>
-  </div>
-</div>
-
-  </section>
-  <script src = "settings.js" defer></script>
-  </body>
+                <div class="category-column">
+                    <label class="category-card"
+                        ><input
+                            type="checkbox"
+                            value="artificial-intelligence"
+                        />
+                        Artificial Intelligence</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="startups" />
+                        Startups</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="design" /> Design</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="career" /> Career</label
+                    >
+                    <label class="category-card"
+                        ><input type="checkbox" value="general" />
+                        General</label
+                    >
+                </div>
+            </div>
+        </section>
+        <script src="settings.js" defer></script>
+    </body>
 </html>
-
