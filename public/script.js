@@ -1,12 +1,14 @@
 function getSelectedCategories() {
     const saved = localStorage.getItem("devdigest-categories");
+    const allCategories = Object.keys(categoryKeywords); // <- this is the key change
     try {
         const selected = JSON.parse(saved);
-        return Array.isArray(selected) ? selected : [];
+        return Array.isArray(selected) ? selected : allCategories;
     } catch {
-        return [];
+        return allCategories;
     }
 }
+
 
 function getMatchedCategories(title) {
   const lower = title.toLowerCase();
